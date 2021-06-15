@@ -1,0 +1,33 @@
+#:import Factory kivy.factory.Factory
+<MyPopup@Popup>:
+    #auto_dismiss: False
+    Button:
+        text: 'Close me!'
+        on_release: root.dismiss()
+
+<MyPopups@Popup>:
+    #auto_dismiss: False
+    size_hint:.5, .5
+    BoxLayout:
+        Button:
+            text: 'Close me! bitch'
+            on_release: root.dismiss()
+            size_hint:1, 0.2
+            pos_hint:{'x': 0 , 'y': .5}
+        Button:
+            text: 'No'
+            on_release: root.dismiss()
+            size_hint:1, 0.2
+            pos_hint:{'x': 0 , 'y': .1}
+###########################################
+
+ MainButton:
+                    id:lol
+		    	    text:'Выход'
+	    		    #on_press : root.call_out(main)
+                    on_press : Factory.MyPopups().open()
+                    #on_press : main.add_widget()
+                    #on_press : self.add_widget(lols)
+
+	    		    #on_press : self.text = 'Id: "button_two: " {}'
+                    #on_release: lol.text = 'Id: "button_two: " {}'
